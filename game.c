@@ -15,11 +15,11 @@ int plateau[TAILLE_PLATEAU][TAILLE_PLATEAU] = {
   {0,0,0,0,0,0,0,0,0,0,0},
   {0,0,0,0,0,0,0,0,0,0,0},
   {0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0},
   {0,0,0,0,0,0,0,0,0,0,0}
 };
 
 void main(){
   AfficheCadre("          The Hex'ISEN Game          ", ANSI_ROUGE, ANSI_BLEU);
   affichePlateau(plateau);
-  afficheLigne(plateau[2], 4);
 }
