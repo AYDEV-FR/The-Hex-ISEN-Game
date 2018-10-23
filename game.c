@@ -25,6 +25,7 @@ void main(){
   int tour = 0;
   while(!game_over){
     AfficheCadre("          The Hex'ISEN Game          ", ANSI_ROUGE, ANSI_BLEU);
+    printf("\n%d\n", win(plateau));
     affichePlateau(plateau);
     Ask_Joueur(plateau, (tour%2)+1);
     ClearScreen();

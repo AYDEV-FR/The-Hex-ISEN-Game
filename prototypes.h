@@ -19,3 +19,5 @@ void decalage(int decalage);
 **/
 int Ascii(char c);
 void Ask_Joueur(int plateau[TAILLE_PLATEAU][TAILLE_PLATEAU], int n);
+int findPath(int plateau[TAILLE_PLATEAU][TAILLE_PLATEAU], int x, int y, int n);
+int win(int plateau[TAILLE_PLATEAU][TAILLE_PLATEAU]);

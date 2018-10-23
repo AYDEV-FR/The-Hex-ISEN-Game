@@ -132,7 +132,14 @@ void afficheLigne(int ligne[TAILLE_PLATEAU], int dec){
       case 2:
         AfficheChaine("X ", ANSI_BLEU, False);
         break;
+      case 3:
+        AfficheChaine("X ", ANSI_NOIR, False);
+        break;
+      case 4:
+        AfficheChaine("X ", ANSI_NOIR, False);
+        break;
     }
+    //printf("%d ", ligne[i]);
   }
   AfficheChaine("\\ \n", ANSI_ROUGE, False);
 }
@@ -141,7 +148,7 @@ void afficheLigne(int ligne[TAILLE_PLATEAU], int dec){
 **  Affiche Plateau Complet
 **/
 void affichePlateau(int p[TAILLE_PLATEAU][TAILLE_PLATEAU]){
-  decalage(2);
+  decalage(4);
   for(int i=1; i <= TAILLE_PLATEAU; i++){
     TexteCouleur(ANSI_BLEU, True);
     printf("%d", i);
