@@ -1,3 +1,8 @@
+void ClearScreen(void) {
+	if (CLEAR_ACTIVE == 1) {
+		system(CLEAR_COMMAND);
+	}
+}
 
 /*********************************************************************************
 **  Affiche des codes Ansi afin que le texte qui suivra sera de la couleur voulue
@@ -44,6 +49,7 @@ void AfficheCadre(char * chaine, int colortxt, int colorcadre) {
 			printf("\033[1;3%dm *\n", colorcadre);
 			for (i=0; i<n+4; i++) { printf("*"); }
 			printf("\033[0m\n");
+      printf("\n\n");
 			break;
 		case 1:
 			for (i=0; i<n+4; i++) { printf("*"); }
@@ -116,7 +122,17 @@ void afficheLigne(int ligne[TAILLE_PLATEAU], int dec){
   AfficheChar(65+dec, ANSI_ROUGE, False);
   AfficheChaine(" \\ ", ANSI_ROUGE, False);
   for (int i = 0; i < TAILLE_PLATEAU; i++) {
-    printf("%d ", ligne[i]);
+    switch(ligne[i]){
+      case 0:
+        printf("0 ");
+        break;
+      case 1:
+        AfficheChaine("X " , ANSI_ROUGE, False);
+        break;
+      case 2:
+        AfficheChaine("X ", ANSI_BLEU, False);
+        break;
+    }
   }
   AfficheChaine("\\ \n", ANSI_ROUGE, False);
 }

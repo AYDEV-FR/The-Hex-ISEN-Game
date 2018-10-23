@@ -4,6 +4,7 @@
 #include "define.h"
 #include "prototypes.h"
 #include "affichage.h"
+#include "jeu.h"
 
 int plateau[TAILLE_PLATEAU][TAILLE_PLATEAU] = {
   {0,0,0,0,0,0,0,0,0,0,0},
@@ -20,6 +21,13 @@ int plateau[TAILLE_PLATEAU][TAILLE_PLATEAU] = {
 };
 
 void main(){
-  AfficheCadre("          The Hex'ISEN Game          ", ANSI_ROUGE, ANSI_BLEU);
-  affichePlateau(plateau);
+  int game_over = False;
+  int tour = 0;
+  while(!game_over){
+    AfficheCadre("          The Hex'ISEN Game          ", ANSI_ROUGE, ANSI_BLEU);
+    affichePlateau(plateau);
+    Ask_Joueur(plateau, (tour%2)+1);
+    ClearScreen();
+    tour++;
+  }
 }
