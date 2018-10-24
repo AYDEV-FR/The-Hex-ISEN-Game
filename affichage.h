@@ -133,10 +133,10 @@ void afficheLigne(int ligne[TAILLE_PLATEAU], int dec){
         AfficheChaine("X ", ANSI_BLEU, False);
         break;
       case 3:
-        AfficheChaine("X ", ANSI_NOIR, False);
+        AfficheChaine("X ", ANSI_VERT, False);
         break;
       case 4:
-        AfficheChaine("X ", ANSI_NOIR, False);
+        AfficheChaine("X ", ANSI_VERT, False);
         break;
     }
     //printf("%d ", ligne[i]);

@@ -21,14 +21,15 @@ int plateau[TAILLE_PLATEAU][TAILLE_PLATEAU] = {
 };
 
 void main(){
-  int game_over = False;
   int tour = 0;
-  while(!game_over){
+  while(win(plateau) == 0){
     AfficheCadre("          The Hex'ISEN Game          ", ANSI_ROUGE, ANSI_BLEU);
-    printf("\n%d\n", win(plateau));
     affichePlateau(plateau);
     Ask_Joueur(plateau, (tour%2)+1);
     ClearScreen();
     tour++;
   }
+  AfficheCadre("          The Hex'ISEN Game          ", ANSI_ROUGE, ANSI_BLEU);
+  affichePlateau(plateau);
+  AfficheChaine("Partie terminée ! \n\n\n", ANSI_ROUGE, True);
 }

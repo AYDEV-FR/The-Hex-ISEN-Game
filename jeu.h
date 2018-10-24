@@ -22,10 +22,10 @@ int findPath(int plateau[TAILLE_PLATEAU][TAILLE_PLATEAU], int x, int y, int n) {
     if(n == 1) plateau[x][y] = 3;
     if(n == 2) plateau[x][y] = 4;
 
-    if (x == TAILLE_PLATEAU - 1 && n == 1) {
+    if (n == 1 && y == TAILLE_PLATEAU - 1) {
         return True;
     }
-    if (y == TAILLE_PLATEAU - 1 && n == 2) {
+    if (n == 2 && x == TAILLE_PLATEAU - 1) {
         return True;
     }
     if (x + 1 < TAILLE_PLATEAU && plateau[x + 1][y] == n) {
@@ -64,14 +64,14 @@ int findPath(int plateau[TAILLE_PLATEAU][TAILLE_PLATEAU], int x, int y, int n) {
 
 int win(int plateau[TAILLE_PLATEAU][TAILLE_PLATEAU]){
   for (int i = 0; i < TAILLE_PLATEAU; i++) {
-    if(plateau[0][i] == 1 && findPath(plateau, 0, i, 1)){
-      return True;
+    if(plateau[i][0] == 1 && findPath(plateau, i, 0, 1)){
+      return 1;
     }
   }
   for (int i = 0; i < TAILLE_PLATEAU; i++) {
-    if(plateau[i][0] == 2 && findPath(plateau, i, 0, 2)){
-      return True;
+    if(plateau[0][i] == 2 && findPath(plateau, 0, i, 2)){
+      return 2;
     }
   }
-  return False;
+  return 0;
 }
