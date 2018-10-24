@@ -4,9 +4,11 @@
 ## Cahier des Charges
 
  **Contexte & définition du projet**
+ 
  Notre équipe de 3 développeur à pour objectif de réalisé un algorithme en C, celui doit etre un algorithme mettant en œuvre la théorie des Jeux. Notre client nous demande la réalisation du Jeu "HEX".
 
 **Objectif du projet**
+
 Nous devons réalisé le Jeu "Hex" en C avec deux options possible : Humain contre Humain ou Humain contre machine. Nous devons réalisé une interface graphique (GUI).
 Nous devons également faire une étude de faisabilité, ainsi qu'un cahier de conception.
 
@@ -16,17 +18,21 @@ Fonction principale :
 
 Fonction secondaire :
 
-- Création d'une interface graphique
+ - [x] Création d'une interface graphique
 -- Le but de cette fonction, à la demande du client, est de rendre le jeu jouable intuitivement
+-- Priorité Moyenne
 
-- Création d'un mode de jeu "Simple" (Humain contre Humain)
+ - [x] Création d'un mode de jeu "Simple" (Humain contre Humain)
 -- Permet de prendre en main facilement le jeu avant de jouer contre l'ordinateur
+-- Priorité Haute
 
-- Création d'un menu (Jouer, Option, Graphisme, etc...)
+ - [ ] Création d'un menu (Jouer, Option, Graphisme, etc...)
 -- Permet de choisir facilement le mode de jeu (H/H ou H/IA) et les options
+-- Priorité Basse
 
-- Création d'un mode de jeu "Intelligent" (Humain contre IA)
+ - [ ] Création d'un mode de jeu "Intelligent" (Humain contre IA)
 -- Demander par le client, il doit utilisé un algorithme de la théorie des jeux.
+-- Priorité Haute
 
 **Delais**
 Le projet doit-être finalisé pour la soutenance du mois de Janvier. 
