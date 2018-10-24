@@ -18,23 +18,16 @@ Fonction principale :
 
 Fonction secondaire :
 
- - [x] Création d'une interface graphique
--- Le but de cette fonction, à la demande du client, est de rendre le jeu jouable intuitivement
--- Priorité Moyenne
+ - [x] Création d'une interface graphique : Le but de cette fonction, à la demande du client, est de rendre le jeu jouable intuitivement | Priorité Moyenne
 
- - [x] Création d'un mode de jeu "Simple" (Humain contre Humain)
--- Permet de prendre en main facilement le jeu avant de jouer contre l'ordinateur
--- Priorité Haute
+ - [x] Création d'un mode de jeu "Simple" (Humain contre Humain): Permet de prendre en main facilement le jeu avant de jouer contre l'ordinateur | Priorité Haute
 
- - [ ] Création d'un menu (Jouer, Option, Graphisme, etc...)
--- Permet de choisir facilement le mode de jeu (H/H ou H/IA) et les options
--- Priorité Basse
+ - [ ] Création d'un menu (Jouer, Option, Graphisme, etc...) : Permet de choisir facilement le mode de jeu (H/H ou H/IA) et les options | Priorité Basse
 
- - [ ] Création d'un mode de jeu "Intelligent" (Humain contre IA)
--- Demander par le client, il doit utilisé un algorithme de la théorie des jeux.
--- Priorité Haute
+ - [ ] Création d'un mode de jeu "Intelligent" (Humain contre IA) : Demander par le client, il doit utilisé un algorithme de la théorie des jeux | Priorité Haute
 
 **Delais**
+
 Le projet doit-être finalisé pour la soutenance du mois de Janvier. 
 
 
