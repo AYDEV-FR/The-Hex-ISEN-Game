@@ -1,0 +1,2 @@
+#define SCREEN_SHIFT_V 60
+#define SCREEN_SHIFT_H 40
