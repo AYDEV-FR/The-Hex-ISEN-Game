@@ -11,15 +11,14 @@
 /*********************************************************************************
 **  MODE_AFFICHAGE
 **     0 => Couleur [ANSI]
-**     1 => noir et blanc avec soulignage du joueur en cours [ANSI]
-**     2 => noir et blanc (terminal default), à mettre pour windows...
+**     1 => noir et blanc (terminal default), à mettre pour windows...
 **/
 #define MODE_AFFICHAGE 0
 
 /*********************************************************************************
 **  nombre d'espaces ' ' à gauche du plateau
 **/
-#define DECALAGE_PLATEAU 3
+#define DECALAGE_PLATEAU 5
 #define TAILLE_PLATEAU 11
 
 /*********************************************************************************

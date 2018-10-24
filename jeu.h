@@ -10,7 +10,7 @@ void Ask_Joueur(int plateau[TAILLE_PLATEAU][TAILLE_PLATEAU], int n){
     n == 1 ? TexteCouleur(ANSI_ROUGE, True) : TexteCouleur(ANSI_BLEU, True);
     printf("Joueur %d \n", n);
     TexteNormal();
-    printf("Veuillez entrer la case ou placer le pion (A1, A2, ... B1, B2...) : ");
+    printf("Déplacement (A 1) : ");
     scanf("%s %d", &ligne, &c);
     l = Ascii(ligne);
   } while(plateau[l][c-1] != 0);

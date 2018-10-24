@@ -122,24 +122,27 @@ void afficheLigne(int ligne[TAILLE_PLATEAU], int dec){
   AfficheChar(65+dec, ANSI_ROUGE, False);
   AfficheChaine(" \\ ", ANSI_ROUGE, False);
   for (int i = 0; i < TAILLE_PLATEAU; i++) {
-    switch(ligne[i]){
-      case 0:
-        printf("0 ");
-        break;
-      case 1:
-        AfficheChaine("X " , ANSI_ROUGE, False);
-        break;
-      case 2:
-        AfficheChaine("X ", ANSI_BLEU, False);
-        break;
-      case 3:
-        AfficheChaine("X ", ANSI_VERT, False);
-        break;
-      case 4:
-        AfficheChaine("X ", ANSI_VERT, False);
-        break;
-    }
-    //printf("%d ", ligne[i]);
+		if(MODE_AFFICHAGE == 0){
+			switch(ligne[i]){
+	      case 0:
+	        printf("0 ");
+	        break;
+	      case 1:
+	        AfficheChaine("X " , ANSI_ROUGE, False);
+	        break;
+	      case 2:
+	        AfficheChaine("X ", ANSI_BLEU, False);
+	        break;
+	      case 3:
+	        AfficheChaine("X ", ANSI_VERT, False);
+	        break;
+	      case 4:
+	        AfficheChaine("X ", ANSI_VERT, False);
+	        break;
+	    }
+		} else {
+			printf("%d ", ligne[i]);
+		}
   }
   AfficheChaine("\\ \n", ANSI_ROUGE, False);
 }
