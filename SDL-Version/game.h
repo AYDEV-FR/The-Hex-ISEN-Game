@@ -36,9 +36,77 @@ Hex_Case **initBoard(int n){
 
 void hexClick(Hex jeu, int n){
   SDL_Rect pos;
-  pos = click(jeu);
+  do {
+    pos = click(jeu);
+  } while(jeu.board[pos.x][pos.y].joueur != 0);
   jeu.board[pos.x][pos.y].joueur = n;
+  printf("%d %d\n", pos.x, pos.y);
 }
+
+
+
+
+int findPath(Hex hex, int x, int y, int n) {
+    if(n == 1) hex.board[x][y].joueur = 3;
+    if(n == 2) hex.board[x][y].joueur = 4;
+
+    if (n == 1 && x == hex.sizeBoard - 1) {
+        return True;
+    }
+    if (n == 2 && y == hex.sizeBoard - 1) {
+        return True;
+    }
+    if (x + 1 < hex.sizeBoard && hex.board[x + 1][y].joueur == n) {
+        if (findPath(hex, x + 1, y, n)) {
+            return True;
+        }
+    }
+    if (x - 1 >= 0 && hex.board[x - 1][y].joueur == n) {
+        if (findPath(hex, x - 1, y, n)) {
+            return True;
+        }
+    }
+    if (y + 1 < hex.sizeBoard && hex.board[x][y + 1].joueur == n) {
+        if (findPath(hex, x, y + 1, n)) {
+            return True;
+        }
+    }
+    if (y - 1 >= 0 && hex.board[x][y - 1].joueur == n) {
+        if (findPath(hex, x, y - 1, n)) {
+            return True;
+        }
+    }
+    if (y - 1 >= 0 && x + 1 < hex.sizeBoard && hex.board[x + 1][y - 1].joueur == n) {
+        if (findPath(hex, x + 1, y - 1, n)) {
+            return True;
+        }
+    }
+    if (y + 1 < hex.sizeBoard && x - 1 >= 0 && hex.board[x - 1][y + 1].joueur == n) {
+        if (findPath(hex, x - 1, y + 1, n)) {
+            return True;
+        }
+    }
+    hex.board[x][y].joueur = n;
+    return False;
+}
+
+
+
+int winHex(Hex hex){
+  for (int i = 0; i < hex.sizeBoard; i++) {
+    if(hex.board[0][i].joueur == 1 && findPath(hex, 0, i, 1)){
+      return 1;
+    }
+  }
+  for (int i = 0; i < hex.sizeBoard; i++) {
+    printf("%d ", hex.board[i][0].joueur);
+    if(hex.board[i][0].joueur == 2 && findPath(hex, i, 0, 2)){
+      return 2;
+    }
+  }
+  return 0;
+}
+
 
 
 /*

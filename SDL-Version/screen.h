@@ -46,13 +46,26 @@ void updateBoard(Hex jeu, SDL_Surface *ecran){
         case 2:
           jeu.board[i][j].hex = IMG_Load("img/Hex_Blue.png");
           break;
+        case 3: case 4:
+        jeu.board[i][j].hex = IMG_Load("img/Hex_Ok.png");
+        break;
       }
       SDL_BlitSurface(jeu.board[i][j].hex, NULL, ecran, &jeu.board[i][j].pos);
     }
   }
+  displayContour(ecran);
 }
 
 void updateScreen(SDL_Surface *ecran){
   SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 255, 255, 255));
   SDL_Flip(ecran);
+}
+
+void displayContour(SDL_Surface *ecran){
+  SDL_Surface *contour;
+  SDL_Rect pos;
+  contour = IMG_Load("img/Hex_Contour.png");
+  pos.x = SCREEN_SHIFT_H - 4;
+  pos.y = SCREEN_SHIFT_V - 4;
+  SDL_BlitSurface(contour, NULL, ecran, &pos);
 }
