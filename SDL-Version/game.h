@@ -23,8 +23,8 @@ Hex_Case **initBoard(int n){
       exit(EXIT_FAILURE);
     }
   }
-  for(int i=0; i < 11; i++){
-    for(int j=0; j < 11; j++){
+  for(int i=0; i < n; i++){
+    for(int j=0; j < n; j++){
       board[i][j].pos.x = 0;
       board[i][j].pos.y = 0;
       board[i][j].hex = NULL;

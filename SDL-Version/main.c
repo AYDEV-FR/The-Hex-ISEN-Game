@@ -31,8 +31,11 @@ int main(int argc, char *argv[])
       SDL_Flip(ecran);
       tour++;
     }
-    printf("Partie Terminé !");
+    updateBoard(hex, ecran);
+    SDL_Flip(ecran);
 
+    printf("Partie Terminé !");
+    pause();
 
     SDL_Quit();
     return EXIT_SUCCESS;

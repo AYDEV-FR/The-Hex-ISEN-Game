@@ -30,10 +30,25 @@ SDL_Rect click(Hex jeu){
   }
 }
 
+void pause(){
+  SDL_Event event;
+  int continuer = 1;
+
+  while (continuer)
+  {
+      SDL_WaitEvent(&event);
+      switch(event.type)
+      {
+        case SDL_QUIT:
+          continuer = 0;
+          break;
+      }
+  }
+}
 
 void updateBoard(Hex jeu, SDL_Surface *ecran){
-  for(int i=0; i < 11; i++){
-    for(int j=0; j < 11; j++){
+  for(int i=0; i < jeu.sizeBoard; i++){
+    for(int j=0; j < jeu.sizeBoard; j++){
       jeu.board[i][j].pos.x = SCREEN_SHIFT_H + 42*i + 21*j + 2*i;
       jeu.board[i][j].pos.y = SCREEN_SHIFT_V + 49*j - 11*j;
       switch (jeu.board[i][j].joueur) {
