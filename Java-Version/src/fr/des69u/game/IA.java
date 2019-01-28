@@ -33,14 +33,14 @@ public class IA {
 		}
 		System.out.println("Last Max : " + max);
 		this.cboard.setBoard(max_i, max_j, Constants.BLUE);
-		Game.board.setBoard(max_i, max_j, Constants.BLUE);
+		Game.board.setBoard(max_j, max_i, Constants.BLUE);
 		this.cboard.displayBoard();
 	}
 
 	
 	private int min() {
 		if(this.tmp_profondeur == 0 || this.cboard.isWin() != 0){
-	          return eval();
+			return MinMax.basicEval(this.cboard, 1);
 	     }
 		 this.tmp_profondeur--;
 		 System.out.println("==============================" + this.tmp_profondeur);
@@ -65,7 +65,7 @@ public class IA {
 	private int max() {
 		
 		if(this.tmp_profondeur == 0 || this.cboard.isWin() != 0){
-	          return eval();
+	          return MinMax.basicEval(this.cboard, 2);
 	     }
 		 this.tmp_profondeur--;
 		 System.out.println("==============================" + this.tmp_profondeur);

@@ -21,9 +21,39 @@ import fr.des69u.main.Game;
 public class JCaseBoard extends JButton {
 
 	private static final long serialVersionUID = 1L;
-	private Icon Hex_Focus, Hex_Blue, Hex_Red;
+	private Icon Hex_Focus, Hex_Blue, Hex_Red, Hex_Simple;
 	
-	public JCaseBoard(int x, int y, Icon icon, boolean locked) {
+	private MouseListener mouse = new MouseListener() {
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+			setIcon(Hex_Focus);
+		}
+
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+				setIcon(Hex_Simple);
+		}
+
+		@Override
+		public void mouseClicked(MouseEvent e) {}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			if(Game.player.getCurrentPlayerColor() == Constants.BLUE) {
+				setIcon(Hex_Blue);
+			} else {
+				setIcon(Hex_Red);
+			}
+			removeMouseListener(this);
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {}
+
+	};
+	
+	
+	public JCaseBoard(int x, int y, Icon icon) {
         super();
         setBounds(x, y, 42, 49);
         setSize(42, 49);
@@ -36,49 +66,30 @@ public class JCaseBoard extends JButton {
         setOpaque(false);
         setLocation(x, y);
         setCursor(new Cursor(Cursor.HAND_CURSOR));
+       
         
-        
-        if(!locked && Settings.Animation == 1) {
+        if(Settings.Animation == 1) {
         	
         	try {
     			Hex_Focus = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/Hex_Focus.png")));
     			Hex_Red = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/Hex_Red.png")));
     			Hex_Blue = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/Hex_Blue.png")));
+    			Hex_Simple = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/Hex_Simple.png")));
     		} catch (IOException e1) {
     			e1.printStackTrace();
     		}
             
-            this.addMouseListener(new MouseListener() {
-
-    			@Override
-    			public void mouseEntered(MouseEvent arg0) {
-    				setIcon(Hex_Focus);
-    			}
-
-    			@Override
-    			public void mouseExited(MouseEvent arg0) {
-    				setIcon(icon);	
-    			}
-
-    			@Override
-    			public void mouseClicked(MouseEvent e) {}
-
-    			@Override
-    			public void mousePressed(MouseEvent e) {
-    				if(Game.player.getCurrentPlayerColor() == Constants.BLUE) {
-    					setIcon(Hex_Blue);
-    				} else {
-    					setIcon(Hex_Red);
-    				}
-    			}
-
-    			@Override
-    			public void mouseReleased(MouseEvent e) {}
-
-    		});
+            this.addMouseListener(mouse);
         }        
         
     }
+	
+	public void updateCase(Icon icon, boolean locked) {
+		setIcon(icon);
+		if(Settings.Animation == 1 && locked) {
+			this.removeMouseListener(mouse);
+		}
+	}
 	
     
 }

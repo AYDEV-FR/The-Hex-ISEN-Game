@@ -34,6 +34,7 @@ import java.awt.Insets;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JLabel;
 
 public class FrameHome extends JFrame {
 
@@ -73,6 +74,9 @@ public class FrameHome extends JFrame {
 		
 		JButtonHex btnHexgame = new JButtonHex("HexGame", 100, Color.DARK_GRAY);
 		
+		JLabel lblNewLabel = new JLabel(Constants.VERSION_NAME + " " + Constants.VERSION);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
@@ -85,8 +89,11 @@ public class FrameHome extends JFrame {
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(188)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addComponent(btnPlay)
-								.addComponent(btnSettings, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+								.addComponent(btnPlay, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnSettings, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(311)
+							.addComponent(lblNewLabel)))
 					.addContainerGap(53, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
@@ -95,10 +102,12 @@ public class FrameHome extends JFrame {
 					.addContainerGap()
 					.addComponent(btnHexgame, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)
 					.addGap(47)
-					.addComponent(btnPlay)
+					.addComponent(btnPlay, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(btnSettings, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(182, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+					.addComponent(lblNewLabel)
+					.addContainerGap())
 		);
 		contentPane.setLayout(gl_contentPane);
 		

@@ -52,7 +52,10 @@ public class Player {
 	}
 	
 	
-	
+	public void reset() {
+		this.currentPlayerColor = Constants.RED;
+		Game.winner = 0;
+	}
 	
 	
 	public void nextPlayerIAFake(int i, int j) {
@@ -91,7 +94,7 @@ public class Player {
 		
 		if(nb <= 10) {
 			System.out.println(coup.get(rnd)[0] + ";" + coup.get(rnd)[1]);
-			Game.board.setBoard(j + coup.get(rnd)[0], i + coup.get(rnd)[1], Constants.BLUE);
+			Game.board.setBoard(i + coup.get(rnd)[1], j + coup.get(rnd)[0], Constants.BLUE);
 		} else {
 			
 			do {
@@ -99,7 +102,7 @@ public class Player {
 				 rnd_j = (int) (Math.random() * ( Settings.Size-1 ));
 			} while(!Game.board.isEmpty(rnd_i, rnd_j));
 			System.out.println(rnd_i + "-" + rnd_j);
-			Game.board.setBoard(rnd_j, rnd_i, Constants.BLUE);
+			Game.board.setBoard(rnd_i, rnd_j, Constants.BLUE);
 		}
 		
 		

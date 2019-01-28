@@ -21,6 +21,15 @@ import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JMenuItem;
+import java.awt.BorderLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridLayout;
+import javax.swing.SwingConstants;
+import javax.swing.BoxLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class FrameGame extends JFrame {
 
@@ -35,47 +44,54 @@ public class FrameGame extends JFrame {
 	 * Create the frame.
 	 */
 	public FrameGame() {
-			
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 775, 711);
+		setBounds(100, 100, 787, 722);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		
 		PanelBoard panelBoard = new PanelBoard();
-		panelBoard.setBounds(10, 11, 749, 574);
+		panelBoard.setBounds(10, 11, 753, 574);
 		contentPane.add(panelBoard);
+		
+		JButton btnSettings = new JButton("Settings");
+		btnSettings.setBounds(634, 636, 126, 31);
+		contentPane.add(btnSettings);
 		
 
 		
 		JLabel lblTheHexisenGame = new JLabel("The Hex'ISEN Game");
-		lblTheHexisenGame.setFont(new Font("Times New Roman", Font.PLAIN, 39));
-		lblTheHexisenGame.setBounds(10, 640, 361, 31);
+		lblTheHexisenGame.setBounds(10, 627, 361, 31);
 		contentPane.add(lblTheHexisenGame);
+		lblTheHexisenGame.setFont(new Font("Times New Roman", Font.PLAIN, 39));
+		
+		JButton button = new JButton("Reload");
+		button.setBounds(501, 636, 126, 31);
+		contentPane.add(button);
 		
 		JButton btnReplay = new JButton("Replay");
+		btnReplay.setBounds(634, 596, 126, 31);
+		contentPane.add(btnReplay);
 		btnReplay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Game.board.init();
+				Game.player.reset();
 				panelBoard.reloadBoard();
 				repaint();
 			}
 		});
-		btnReplay.setBounds(633, 640, 126, 31);
-		contentPane.add(btnReplay);
-		
-		JButton button = new JButton("Reload");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panelBoard.reloadBoard();
 			}
 		});
-		button.setBounds(488, 640, 126, 31);
-		contentPane.add(button);
 		
-		JButton btnSettings = new JButton("Settings");
+		
+		
+		
 		btnSettings.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrameSettings frame = new FrameSettings();
@@ -84,7 +100,5 @@ public class FrameGame extends JFrame {
 				dispose(); 
 			}
 		});
-		btnSettings.setBounds(633, 596, 126, 31);
-		contentPane.add(btnSettings);
 	}
 }

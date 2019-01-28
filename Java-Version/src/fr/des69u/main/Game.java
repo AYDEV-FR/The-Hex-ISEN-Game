@@ -11,6 +11,8 @@ public class Game {
 
 	public static Board board = new Board();
 	public static Player player = new Player();
+	public static int nb_tours = 0;
+	public static int winner = 0;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

@@ -1,5 +1,6 @@
 package fr.des69u.game;
 
+import fr.des69u.main.Game;
 
 public class Board {
 
@@ -14,10 +15,10 @@ public class Board {
 		this.init();
 		for(int i = 0; i < Settings.Size ; i++) {
 			for(int j = 0; j < Settings.Size ; j++) {
-				this.board[j][i] = cboard.getBoard()[j][i];
+				this.board[i][j] = cboard.getBoard()[i][j];
 			}
 		}
-		System.out.println("Board Initialisé avec succés");
+		//System.out.println("Board Initialisé avec succés");
 	}
 	
 	public void displayBoard(){
@@ -42,8 +43,8 @@ public class Board {
 		this.board = new int[Settings.Size][Settings.Size];
 	}
 	
-	public void setBoard(int x, int y, int a) {
-		this.board[y][x] = a;
+	public void setBoard(int i, int j, int a) {
+		this.board[i][j] = a;
 	}
 	
 	public boolean isEmpty(int i, int j) {
@@ -53,11 +54,13 @@ public class Board {
 	public int isWin() {
 		for (int i = 0; i < Settings.Size; i++) {
 		    if(this.board[0][i] == Constants.RED && findPath(0, i, 1)){
+		      Game.winner = Constants.RED;
 		      return Constants.RED;
 		    }
 		  }
 		  for (int i = 0; i < Settings.Size; i++) {
 		    if(this.board[i][0] == Constants.BLUE && findPath( i, 0, 2)){
+		      Game.winner = Constants.BLUE;
 		      return Constants.BLUE;
 		    }
 		  }
@@ -107,8 +110,6 @@ public class Board {
 		    this.board[x][y] = n;
 		    return false;
 		}
-	
-	
 	
 	
 	

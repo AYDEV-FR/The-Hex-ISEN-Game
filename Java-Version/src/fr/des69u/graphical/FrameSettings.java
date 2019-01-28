@@ -126,6 +126,8 @@ public class FrameSettings extends JFrame {
 		btnIa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tmpSettings.put("GameMode", Constants.GAMEMODE_IA);
+				txtPlayer2.setText("A.I");
+				txtPlayer2.setEnabled(false);
 				btnv.setForeground(Color.BLACK);
 				btnIa.setForeground(Color.BLUE);
 			}
@@ -133,6 +135,8 @@ public class FrameSettings extends JFrame {
 		btnv.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tmpSettings.put("GameMode", Constants.GAMEMODE_1V1);
+				txtPlayer2.setText("Player 2");
+				txtPlayer2.setEnabled(true);
 				btnIa.setForeground(Color.BLACK);
 				btnv.setForeground(Color.BLUE);
 			}
@@ -239,6 +243,8 @@ public class FrameSettings extends JFrame {
 		    		new FrameGame().setVisible(true);
 					setVisible(false);
 					dispose();
+		    	} else {
+		    		setVisible(true);
 		    	}
 		    }
 		});
